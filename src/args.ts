@@ -190,7 +190,9 @@ export async function executeShellInBody(
   last = 0;
   for (const m of withSentinels.matchAll(SHELL_INLINE_PATTERN)) {
     withInlines += withSentinels.slice(last, m.index);
-    withInlines += await runOneShellCommand(m[1] ?? "", pi, cwd, timeoutMs);
+    // Inline output sits mid-sentence: drop one trailing newline, like $(…).
+    const output = await runOneShellCommand(m[1] ?? "", pi, cwd, timeoutMs);
+    withInlines += output.endsWith("\n") ? output.slice(0, -1) : output;
     last = m.index + m[0].length;
   }
   withInlines += withSentinels.slice(last);

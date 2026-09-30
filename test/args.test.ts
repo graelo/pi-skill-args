@@ -145,6 +145,12 @@ describe("executeShellInBody", () => {
     assert.equal(out, "printed !`evil`");
   });
 
+  test("inline output drops one trailing newline, block output keeps it", async () => {
+    const { pi } = mockPi([], async () => ok("x\n\n"));
+    assert.equal(await executeShellInBody("a !`i` b", pi, "/w", 1000), "a x\n b");
+    assert.equal(await executeShellInBody("```!\nb\n```", pi, "/w", 1000), "x\n\n");
+  });
+
   test("empty !`` is left alone", async () => {
     const calls: string[] = [];
     const { pi } = mockPi([], echoExec(calls));
