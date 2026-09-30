@@ -1,0 +1,44 @@
+{
+  "name": "@graelo/pi-skill-args",
+  "version": "0.1.0",
+  "description": "Claude-style $ARGUMENTS / $1 placeholders and !`cmd` shell substitution in Pi skills, without touching the system prompt",
+  "type": "module",
+  "main": "src/index.ts",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test": "tsx --test test/**/*.test.ts"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@types/node": "^24",
+    "tsx": "^4.23.11",
+    "typescript": "^6.0.3"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "keywords": [
+    "pi-extension",
+    "pi-package",
+    "pi",
+    "skills",
+    "arguments",
+    "shell-substitution"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "license": "MIT",
+  "contributors": [
+    "juicesharp",
+    "graelo <graelo@graelo.cc>"
+  ]
+}
