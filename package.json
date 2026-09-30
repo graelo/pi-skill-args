@@ -25,6 +25,10 @@
       "./src/index.ts"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graelo/pi-skill-args.git"
+  },
   "keywords": [
     "pi-extension",
     "pi-package",
@@ -40,5 +44,8 @@
   "contributors": [
     "juicesharp",
     "graelo <graelo@graelo.cc>"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
