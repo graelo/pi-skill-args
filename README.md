@@ -7,7 +7,8 @@ Forked from [`@juicesharp/rpiv-args`](https://github.com/juicesharp/rpiv-mono/tr
 keeping only the expansion logic. Unlike upstream, it **never modifies the
 system prompt**: no `before_agent_start` hook, no "skill invocation protocol"
 section. That keeps it compatible with Pi 0.99.2's per-prompt system prompt
-sections (e.g. `mcp_servers`) and with prompt caching.
+sections (e.g. `mcp_servers`) and with prompt caching. Verified against
+Pi 1.0.x.
 
 ## Syntax
 
